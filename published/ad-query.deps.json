@@ -1,0 +1,304 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "ad-query/1.0.0": {
+        "dependencies": {
+          "System.CommandLine": "2.0.0-beta3.22114.1",
+          "System.CommandLine.DragonFruit": "0.4.0-alpha.22114.1",
+          "System.CommandLine.Parser": "0.1.1",
+          "System.DirectoryServices": "6.0.0"
+        },
+        "runtime": {
+          "ad-query.dll": {}
+        }
+      },
+      "Microsoft.CSharp/4.7.0": {},
+      "Microsoft.Win32.SystemEvents/6.0.0": {
+        "runtime": {
+          "lib/net6.0/Microsoft.Win32.SystemEvents.dll": {
+            "assemblyVersion": "6.0.0.0",
+            "fileVersion": "6.0.21.52210"
+          }
+        },
+        "runtimeTargets": {
+          "runtimes/win/lib/net6.0/Microsoft.Win32.SystemEvents.dll": {
+            "rid": "win",
+            "assetType": "runtime",
+            "assemblyVersion": "6.0.0.0",
+            "fileVersion": "6.0.21.52210"
+          }
+        }
+      },
+      "System.CommandLine/2.0.0-beta3.22114.1": {
+        "runtime": {
+          "lib/net6.0/System.CommandLine.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "2.0.22.11401"
+          }
+        },
+        "resources": {
+          "lib/net6.0/cs/System.CommandLine.resources.dll": {
+            "locale": "cs"
+          },
+          "lib/net6.0/de/System.CommandLine.resources.dll": {
+            "locale": "de"
+          },
+          "lib/net6.0/es/System.CommandLine.resources.dll": {
+            "locale": "es"
+          },
+          "lib/net6.0/fr/System.CommandLine.resources.dll": {
+            "locale": "fr"
+          },
+          "lib/net6.0/it/System.CommandLine.resources.dll": {
+            "locale": "it"
+          },
+          "lib/net6.0/ja/System.CommandLine.resources.dll": {
+            "locale": "ja"
+          },
+          "lib/net6.0/ko/System.CommandLine.resources.dll": {
+            "locale": "ko"
+          },
+          "lib/net6.0/pl/System.CommandLine.resources.dll": {
+            "locale": "pl"
+          },
+          "lib/net6.0/pt-BR/System.CommandLine.resources.dll": {
+            "locale": "pt-BR"
+          },
+          "lib/net6.0/ru/System.CommandLine.resources.dll": {
+            "locale": "ru"
+          },
+          "lib/net6.0/tr/System.CommandLine.resources.dll": {
+            "locale": "tr"
+          },
+          "lib/net6.0/zh-Hans/System.CommandLine.resources.dll": {
+            "locale": "zh-Hans"
+          },
+          "lib/net6.0/zh-Hant/System.CommandLine.resources.dll": {
+            "locale": "zh-Hant"
+          }
+        }
+      },
+      "System.CommandLine.DragonFruit/0.4.0-alpha.22114.1": {
+        "dependencies": {
+          "System.CommandLine": "2.0.0-beta3.22114.1",
+          "System.CommandLine.NamingConventionBinder": "2.0.0-beta3.22114.1",
+          "System.CommandLine.Rendering": "0.4.0-alpha.22114.1"
+        },
+        "runtime": {
+          "lib/netstandard2.0/System.CommandLine.DragonFruit.dll": {
+            "assemblyVersion": "0.4.0.0",
+            "fileVersion": "0.400.22.11401"
+          }
+        }
+      },
+      "System.CommandLine.NamingConventionBinder/2.0.0-beta3.22114.1": {
+        "dependencies": {
+          "System.CommandLine": "2.0.0-beta3.22114.1"
+        },
+        "runtime": {
+          "lib/netstandard2.0/System.CommandLine.NamingConventionBinder.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "2.0.22.11401"
+          }
+        }
+      },
+      "System.CommandLine.Parser/0.1.1": {
+        "runtime": {
+          "lib/net45/Antlr4.Runtime.dll": {
+            "assemblyVersion": "4.5.2.0",
+            "fileVersion": "4.5.2.0"
+          },
+          "lib/net45/System.CommandLine.Parser.dll": {
+            "assemblyVersion": "0.1.1.26428",
+            "fileVersion": "0.1.1.0"
+          }
+        }
+      },
+      "System.CommandLine.Rendering/0.4.0-alpha.22114.1": {
+        "dependencies": {
+          "Microsoft.CSharp": "4.7.0",
+          "System.CommandLine": "2.0.0-beta3.22114.1"
+        },
+        "runtime": {
+          "lib/netstandard2.0/System.CommandLine.Rendering.dll": {
+            "assemblyVersion": "0.4.0.0",
+            "fileVersion": "0.400.22.11401"
+          }
+        }
+      },
+      "System.DirectoryServices/6.0.0": {
+        "dependencies": {
+          "System.Security.AccessControl": "6.0.0",
+          "System.Security.Permissions": "6.0.0"
+        },
+        "runtime": {
+          "lib/net6.0/System.DirectoryServices.dll": {
+            "assemblyVersion": "4.0.0.0",
+            "fileVersion": "6.0.21.52210"
+          }
+        },
+        "runtimeTargets": {
+          "runtimes/win/lib/net6.0/System.DirectoryServices.dll": {
+            "rid": "win",
+            "assetType": "runtime",
+            "assemblyVersion": "4.0.0.0",
+            "fileVersion": "6.0.21.52210"
+          }
+        }
+      },
+      "System.Drawing.Common/6.0.0": {
+        "dependencies": {
+          "Microsoft.Win32.SystemEvents": "6.0.0"
+        },
+        "runtime": {
+          "lib/net6.0/System.Drawing.Common.dll": {
+            "assemblyVersion": "6.0.0.0",
+            "fileVersion": "6.0.21.52210"
+          }
+        },
+        "runtimeTargets": {
+          "runtimes/unix/lib/net6.0/System.Drawing.Common.dll": {
+            "rid": "unix",
+            "assetType": "runtime",
+            "assemblyVersion": "6.0.0.0",
+            "fileVersion": "6.0.21.52210"
+          },
+          "runtimes/win/lib/net6.0/System.Drawing.Common.dll": {
+            "rid": "win",
+            "assetType": "runtime",
+            "assemblyVersion": "6.0.0.0",
+            "fileVersion": "6.0.21.52210"
+          }
+        }
+      },
+      "System.Security.AccessControl/6.0.0": {},
+      "System.Security.Permissions/6.0.0": {
+        "dependencies": {
+          "System.Security.AccessControl": "6.0.0",
+          "System.Windows.Extensions": "6.0.0"
+        },
+        "runtime": {
+          "lib/net6.0/System.Security.Permissions.dll": {
+            "assemblyVersion": "6.0.0.0",
+            "fileVersion": "6.0.21.52210"
+          }
+        }
+      },
+      "System.Windows.Extensions/6.0.0": {
+        "dependencies": {
+          "System.Drawing.Common": "6.0.0"
+        },
+        "runtime": {
+          "lib/net6.0/System.Windows.Extensions.dll": {
+            "assemblyVersion": "6.0.0.0",
+            "fileVersion": "6.0.21.52210"
+          }
+        },
+        "runtimeTargets": {
+          "runtimes/win/lib/net6.0/System.Windows.Extensions.dll": {
+            "rid": "win",
+            "assetType": "runtime",
+            "assemblyVersion": "6.0.0.0",
+            "fileVersion": "6.0.21.52210"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "ad-query/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Microsoft.CSharp/4.7.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-pTj+D3uJWyN3My70i2Hqo+OXixq3Os2D1nJ2x92FFo6sk8fYS1m1WLNTs0Dc1uPaViH0YvEEwvzddQ7y4rhXmA==",
+      "path": "microsoft.csharp/4.7.0",
+      "hashPath": "microsoft.csharp.4.7.0.nupkg.sha512"
+    },
+    "Microsoft.Win32.SystemEvents/6.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-hqTM5628jSsQiv+HGpiq3WKBl2c8v1KZfby2J6Pr7pEPlK9waPdgEO6b8A/+/xn/yZ9ulv8HuqK71ONy2tg67A==",
+      "path": "microsoft.win32.systemevents/6.0.0",
+      "hashPath": "microsoft.win32.systemevents.6.0.0.nupkg.sha512"
+    },
+    "System.CommandLine/2.0.0-beta3.22114.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-QMzk1jj+PzdGbwuVsxII7FcQaCelnK+TcRcAqOGVoPovLBCSQPdikKiEzb56vAidvum5t4LSdDZ34O4j7+ALgw==",
+      "path": "system.commandline/2.0.0-beta3.22114.1",
+      "hashPath": "system.commandline.2.0.0-beta3.22114.1.nupkg.sha512"
+    },
+    "System.CommandLine.DragonFruit/0.4.0-alpha.22114.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-HfFET6rQUyWFh0YZkggQ3nKD5JeHmW+p7kpknS0lAV6H70c2p+/g/DtND/Ibd13PZ3Y+hKenkeUFj6AMxL1n7Q==",
+      "path": "system.commandline.dragonfruit/0.4.0-alpha.22114.1",
+      "hashPath": "system.commandline.dragonfruit.0.4.0-alpha.22114.1.nupkg.sha512"
+    },
+    "System.CommandLine.NamingConventionBinder/2.0.0-beta3.22114.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-sNy+prEfFXmNPL29FRaS35rwCT9gpXRT/LywFnCw1iB8b3aIp5eDOL0ykKrVdLVP3pYSvrBWVvb7cQZVMwE69A==",
+      "path": "system.commandline.namingconventionbinder/2.0.0-beta3.22114.1",
+      "hashPath": "system.commandline.namingconventionbinder.2.0.0-beta3.22114.1.nupkg.sha512"
+    },
+    "System.CommandLine.Parser/0.1.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-d3hbCL+dQ4HVh9IwRSy4oqdNMnJpujXW0LaGQGZDplgTzt7ynlsg8mbhim3OoxxamcsA1hUceFNExWK32vIsDQ==",
+      "path": "system.commandline.parser/0.1.1",
+      "hashPath": "system.commandline.parser.0.1.1.nupkg.sha512"
+    },
+    "System.CommandLine.Rendering/0.4.0-alpha.22114.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-VR0xk6MeMzUtEdlTeg3pLJA56lSSPNhjIkUREGhXdWQemIeD3YuOrCtfzZVl+0/CIpE0QqeGBEAaXrLBrbttEQ==",
+      "path": "system.commandline.rendering/0.4.0-alpha.22114.1",
+      "hashPath": "system.commandline.rendering.0.4.0-alpha.22114.1.nupkg.sha512"
+    },
+    "System.DirectoryServices/6.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-kp/Op0nxDVGlElDKh8TsXO0GKXftQgAB6sJk0wUetZK1Rr0Pbd86Tn7AllLLlROFZa4BTl/LVHakljtGELFzCg==",
+      "path": "system.directoryservices/6.0.0",
+      "hashPath": "system.directoryservices.6.0.0.nupkg.sha512"
+    },
+    "System.Drawing.Common/6.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-NfuoKUiP2nUWwKZN6twGqXioIe1zVD0RIj2t976A+czLHr2nY454RwwXs6JU9Htc6mwqL6Dn/nEL3dpVf2jOhg==",
+      "path": "system.drawing.common/6.0.0",
+      "hashPath": "system.drawing.common.6.0.0.nupkg.sha512"
+    },
+    "System.Security.AccessControl/6.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-AUADIc0LIEQe7MzC+I0cl0rAT8RrTAKFHl53yHjEUzNVIaUlhFY11vc2ebiVJzVBuOzun6F7FBA+8KAbGTTedQ==",
+      "path": "system.security.accesscontrol/6.0.0",
+      "hashPath": "system.security.accesscontrol.6.0.0.nupkg.sha512"
+    },
+    "System.Security.Permissions/6.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-T/uuc7AklkDoxmcJ7LGkyX1CcSviZuLCa4jg3PekfJ7SU0niF0IVTXwUiNVP9DSpzou2PpxJ+eNY2IfDM90ZCg==",
+      "path": "system.security.permissions/6.0.0",
+      "hashPath": "system.security.permissions.6.0.0.nupkg.sha512"
+    },
+    "System.Windows.Extensions/6.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-IXoJOXIqc39AIe+CIR7koBtRGMiCt/LPM3lI+PELtDIy9XdyeSrwXFdWV9dzJ2Awl0paLWUaknLxFQ5HpHZUog==",
+      "path": "system.windows.extensions/6.0.0",
+      "hashPath": "system.windows.extensions.6.0.0.nupkg.sha512"
+    }
+  }
+}

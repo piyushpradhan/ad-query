@@ -7,12 +7,21 @@ namespace ADQuery
 {
     class Program
     {
-        public static DirectoryEntry de = new DirectoryEntry("LDAP://10.0.2.7", "JDoe", "FirstTarget1");
+        public static DirectoryEntry de = new DirectoryEntry();
         public static DirectorySearcher ds = new DirectorySearcher(de);
         static async Task Main(string[] args)
         {
             var root = new RootCommand
             {
+                new Option<string>(
+                    "--connect", 
+                    description: "IP of the LDAP server"),
+                new Option<string>(
+                    "--username", 
+                    description: "Enter the username of any valid domain user"),
+                new Option<string>(
+                    "--password", 
+                    description: "Enter the password"),
                 new Option<string>(
                     "--command", 
                     description: "Enter the command you want to execute"),
@@ -24,12 +33,36 @@ namespace ADQuery
                     description: "Enter the properties you want to query (comma separatared)"),
             };
 
-            root.Handler = CommandHandler.Create<string, string?, string?>((command, filter, properties) =>
+            root.Handler = CommandHandler.Create<string, string?, string?, string?, string?, string?>((command, ip, username, password, filter, properties) =>
             {
                 switch (command)
                 {
+                    case "connect":
+                        try
+                        {
+                            de = new DirectoryEntry($"LDAP://{ip}", username, password);
+                            ds = new DirectorySearcher(de);
+                        } catch (Exception e)
+                        {
+                            Console.WriteLine(e.Message);
+                            Console.WriteLine("[-] Please ensure you have entered the right set of credentials and IP");
+                        }
+                        break;
                     case "custom":
                         CustomQuery(filter, properties);
+                        break;
+                    case "user":
+                        Console.WriteLine("Enter the username: ");
+                        string name = Console.ReadLine();
+                        ExtractSingleUserInfo(name, properties);
+                        break;
+                    case "computer":
+                        Console.WriteLine("Enter the computer name: ");
+                        string computerName = Console.ReadLine();
+                        ExtractComputerInfo(computerName, properties);
+                        break;
+                    case "allComputers":
+                        ExtractAllComputersInfo(properties);
                         break;
                     case "allUsers":
                         ExtractAllUsersInfo(properties);
@@ -39,9 +72,9 @@ namespace ADQuery
 
             await root.InvokeAsync(args);
         }            
-        static void CustomQuery(string? filter, string? props = "")
+        static void CustomQuery(string? filter, string? props)
         {
-            string[] properties = props!.Split(",").ToArray<string>();
+            string[] properties = props == null ? Array.Empty<string>() : props!.Split(",").ToArray<string>();
             ds.Filter = filter!;
             try
             {
@@ -52,13 +85,97 @@ namespace ADQuery
                 Console.WriteLine(e.Message);
             }
         }
+        static void ExtractSingleUserInfo(string name, string? props)
+        {
+            string[] properties = props == null ? Array.Empty<string>() : props!.Split(",").ToArray<string>();
+            ds.Filter = $"(&(&(objectCategory=user)(objectClass=user))(|(cn={name})(displayname={name})(name={name})(samaccountname={name})))";
+            try
+            {
+                SearchResultCollection searchResult = ds.FindAll();
+                PrintResult(searchResult, properties);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("[!] Oops something went wrong");
+                Console.WriteLine(e.Message);
+            }
+        }
+        static void ExtractComputerInfo(string name, string? props)
+        {
+            string[] properties = props == null ? Array.Empty<string>() : props!.Split(",").ToArray<string>();
+            ds.Filter = $"(&(objectclass=computer)(|(cn={name})(name={name})(samaccountname={name})))";
+            try
+            {
+                SearchResultCollection searchResult = ds.FindAll();
+                PrintResult(searchResult, properties);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("[!] Oops something went wrong");
+                Console.WriteLine(e.Message);
+            }
+        }
+        static void ExtractAllComputersInfo(string? props)
+        {
+            string[] properties = props == null ? Array.Empty<string>() : props!.Split(",").ToArray<string>();
+            ds.Filter = "(objectclass=computer)";
+            try
+            {
+                SearchResultCollection searchResult = ds.FindAll();
+                PrintResult(searchResult, properties);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("[!] Oops something went wrong");
+                Console.WriteLine(e.Message);
+            }
+        }
         static void ExtractAllUsersInfo(string? props)
         {
-            string[] properties = props!.Split(",").ToArray<string>();
+
+            string[] properties = props == null ? Array.Empty<string>() : props!.Split(",").ToArray<string>();
             ds.Filter = "(&(objectCategory=user)(objectClass=user))";
-            SearchResultCollection searchResult = ds.FindAll();
-            PrintResult(searchResult, properties);
-            
+            try
+            {
+                SearchResultCollection searchResult = ds.FindAll();
+                PrintResult(searchResult, properties);
+            } 
+            catch (Exception e)
+            {
+                Console.WriteLine("[!] Oops something went wrong");
+                Console.WriteLine(e.Message);
+            }
+
+        }
+        static void ExtractDomainPolicy(string? props)
+        {
+            string[] properties = props == null ? Array.Empty<string>() : props!.Split(",").ToArray<string>();
+            ds.Filter = "(objectclass=domain)";
+            try
+            {
+                SearchResultCollection searchResult = ds.FindAll();
+                PrintResult(searchResult, properties);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("[!] Oops something went wrong");
+                Console.WriteLine(e.Message);
+            }
+        }
+        static void ExtractDomainTrust(string? props)
+        {
+            string[] properties = props == null ? Array.Empty<string>() : props!.Split(",").ToArray<string>();
+            ds.Filter = "(objectclass=trustedDomain)";
+            try
+            {
+                SearchResultCollection searchResult = ds.FindAll();
+                PrintResult(searchResult, properties);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("[!] Oops something went wrong");
+                Console.WriteLine(e.Message);
+            }
         }
         static void PrintResult(SearchResultCollection searchResults, string[] properties)
         {
@@ -67,13 +184,12 @@ namespace ADQuery
                 foreach (SearchResult result in searchResults)
                 {
                     DirectoryEntry resDe = result.GetDirectoryEntry();
-                    Console.WriteLine("---------------------------------------------------");
                     ResultPropertyCollection resPropCollection = result.Properties;
                     if (properties.Length > 0)
                     {
                         foreach(string key in properties)
                         {
-                            foreach(Object value in resPropCollection[key])
+                            foreach(Object value in resPropCollection[key.Trim()])
                             {
                                 Console.WriteLine("{0} : {1}", key, value);
                             }
