@@ -147,6 +147,36 @@ namespace ADQuery
             }
 
         }
+        static void ExtractDomainPolicy(string? props)
+        {
+            string[] properties = props == null ? Array.Empty<string>() : props!.Split(",").ToArray<string>();
+            ds.Filter = "(objectclass=domain)";
+            try
+            {
+                SearchResultCollection searchResult = ds.FindAll();
+                PrintResult(searchResult, properties);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("[!] Oops something went wrong");
+                Console.WriteLine(e.Message);
+            }
+        }
+        static void ExtractDomainTrust(string? props)
+        {
+            string[] properties = props == null ? Array.Empty<string>() : props!.Split(",").ToArray<string>();
+            ds.Filter = "(objectclass=trustedDomain)";
+            try
+            {
+                SearchResultCollection searchResult = ds.FindAll();
+                PrintResult(searchResult, properties);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("[!] Oops something went wrong");
+                Console.WriteLine(e.Message);
+            }
+        }
         static void PrintResult(SearchResultCollection searchResults, string[] properties)
         {
             try
